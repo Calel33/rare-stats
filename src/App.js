@@ -19,7 +19,7 @@ const rarities = {
 const App = () => {
 
   useEffect(() => {
-    document.title = "Rare Stats";
+    document.title = "BitcoinRarity";
   }, []);
 
   const [selectedRarities, setSelectedRarities] = useState([]);
