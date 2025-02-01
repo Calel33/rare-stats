@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import './App.css'; // Add a CSS file for additional styling
+import './App.css';
 import { FaCog, FaRegQuestionCircle } from "react-icons/fa"; // Install react-icons if not already installed
+import RareSatsGrid from './components/RareSatsGrid';
 
 const rarities = {
   RRI: ["uncommon", "rare", "epic"],
@@ -808,6 +809,7 @@ const App = () => {
         </div>
       </div>
 
+      <RareSatsGrid />
       <h1 className={`text-center mb-4 ${darkMode ? 'text-light' : 'text-dark'}`}>Select Rarities</h1>
       <div
         style={{

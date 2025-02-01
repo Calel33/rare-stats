@@ -1,0 +1,147 @@
+.rare-sats-grid-container {
+  padding: 2rem;
+}
+
+.rare-sats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rare-sat-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.rare-sat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.rare-sat-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rare-sat-card:hover::before {
+  opacity: 1;
+}
+
+.rare-sat-card h3 {
+  position: relative;
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rare-sat-card:hover h3 {
+  transform: translateX(5px);
+  color: #fff;
+}
+
+.rare-sat-card p {
+  position: relative;
+  margin: 0;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+
+.rare-sat-card:hover p {
+  transform: translateX(5px);
+}
+
+.icon-placeholder {
+  width: 32px;
+  height: 32px;
+  background-color: #3a3a3a;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rare-sat-card:hover .icon-placeholder {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a subtle glow effect for specific categories on hover */
+.mythic:hover { box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15); }
+.legendary:hover { box-shadow: 0 8px 20px rgba(255, 140, 0, 0.15); }
+.epic:hover { box-shadow: 0 8px 20px rgba(148, 0, 211, 0.15); }
+.rare:hover { box-shadow: 0 8px 20px rgba(65, 105, 225, 0.15); }
+.uncommon:hover { box-shadow: 0 8px 20px rgba(50, 205, 50, 0.15); }
+
+/* Category-specific styles */
+.mythic { border-left: 3px solid #ffd700; }
+.legendary { border-left: 3px solid #ff8c00; }
+.epic { border-left: 3px solid #9400d3; }
+.rare { border-left: 3px solid #4169e1; }
+.uncommon { border-left: 3px solid #32cd32; }
+.common { border-left: 3px solid #808080; }
+.black-legendary { border-left: 3px solid #404040; }
+.black-epic { border-left: 3px solid #303030; }
+.black-rare { border-left: 3px solid #202020; }
+.black-uncommon { border-left: 3px solid #101010; }
+
+/* Additional categories */
+.fibonacci { border-left: 3px solid #e6b800; }
+.palindrome { border-left: 3px solid #00bfff; }
+.one-d-pali { border-left: 3px solid #4dc3ff; }
+.two-d-pali { border-left: 3px solid #66ccff; }
+.three-d-pali { border-left: 3px solid #80d4ff; }
+.sequence-pali { border-left: 3px solid #99ddff; }
+.perfect-pali { border-left: 3px solid #b3e6ff; }
+.block-pali { border-left: 3px solid #cceeff; }
+.name-palindrome { border-left: 3px solid #e6f7ff; }
+.alpha { border-left: 3px solid #ff4d4d; }
+.omega { border-left: 3px solid #1ac6ff; }
+.first-transaction { border-left: 3px solid #ffd700; }
+.block-9 { border-left: 3px solid #c0c0c0; }
+.block-78 { border-left: 3px solid #ff69b4; }
+.nakamoto { border-left: 3px solid #ffd700; }
+.vintage { border-left: 3px solid #daa520; }
+.pizza { border-left: 3px solid #ffa500; }
+.jpeg { border-left: 3px solid #20b2aa; }
+.hitman { border-left: 3px solid #800000; }
+.silkroad { border-left: 3px solid #4b0082; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rare-sats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .rare-sats-grid-container {
+    padding: 1rem;
+  }
+  
+  .rare-sat-card {
+    min-height: 100px;
+  }
+}
