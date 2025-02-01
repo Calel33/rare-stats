@@ -1,6 +1,47 @@
 import React from 'react';
 import './RareSatsGrid.css';
 
+const iconBaseUrl = 'https://static.magisat.io/magisat/sattributes/';
+
+const iconMap = {
+  // Local SVG icons
+  mythic: '/icon/Mythic.svg',
+  legendary: '/icon/Legendary.svg',
+  'black-legendary': '/icon/Black Legendary.svg',
+  
+  // Remote icons from magisat.io
+  epic: `${iconBaseUrl}epic.png`,
+  rare: `${iconBaseUrl}rare.png`,
+  uncommon: `${iconBaseUrl}uncommon.png`,
+  common: `${iconBaseUrl}common.png`,
+  'black-epic': `${iconBaseUrl}black-epic.png`,
+  'black-rare': `${iconBaseUrl}black-rare.png`,
+  'black-uncommon': `${iconBaseUrl}black-uncommon.png`,
+  fibonacci: `${iconBaseUrl}fibonacci-sequence.png`,
+  palindrome: `${iconBaseUrl}pali.png`,
+  'one-d-pali': `${iconBaseUrl}1d-pali.png`,
+  'two-d-pali': `${iconBaseUrl}2d-pali.png`,
+  'three-d-pali': `${iconBaseUrl}3d-pali.png`,
+  'sequence-pali': `${iconBaseUrl}seq-pali.png`,
+  'perfect-pali': `${iconBaseUrl}perfect-palinception.png`,
+  'block-pali': `${iconBaseUrl}pali-block.png`,
+  'name-palindrome': `${iconBaseUrl}name-palindrome.png`,
+  alpha: `${iconBaseUrl}alpha.png`,
+  omega: `${iconBaseUrl}omega.png`,
+  'first-transaction': `${iconBaseUrl}first-transaction.png`,
+  'block-9': `${iconBaseUrl}b9.png`,
+  'block-9-450x': `${iconBaseUrl}b9-450.png`,
+  'block-78': `${iconBaseUrl}b78.png`,
+  'block-286': `${iconBaseUrl}b286.png`,
+  'block-666': `${iconBaseUrl}b666.png`,
+  nakamoto: `${iconBaseUrl}nakamoto.png`,
+  vintage: `${iconBaseUrl}vintage.png`,
+  pizza: `${iconBaseUrl}pizza.png`,
+  jpeg: `${iconBaseUrl}jpeg.png`,
+  hitman: `${iconBaseUrl}hitman.png`,
+  silkroad: `${iconBaseUrl}silkroad.png`
+};
+
 const rareSatsData = [
   {
     title: 'Mythic',
@@ -118,9 +159,24 @@ const rareSatsData = [
     category: 'block-9'
   },
   {
+    title: 'Block 9 450x',
+    description: 'The first bitcoin of the 9th block. All sats between 45,000,000,000 and 45,099,999,999 (including). B9-450 Satoshis come from a specific block that holds historical significance, targeted by collectors for their rare position within the blockchain\'s early narrative.',
+    category: 'block-9-450x'
+  },
+  {
     title: 'Block 78',
     description: 'Sats mined by Hal Finney in Block 78 (the first block mined by someone other than Satoshi).',
     category: 'block-78'
+  },
+  {
+    title: 'Block 286',
+    description: 'Sats mined in Block 286.',
+    category: 'block-286'
+  },
+  {
+    title: 'Block 666',
+    description: 'Sats mined in Block 666.',
+    category: 'block-666'
   },
   {
     title: 'Nakamoto',
@@ -156,15 +212,26 @@ const rareSatsData = [
 
 const RareSatsGrid = () => {
   return (
-    <div className="rare-sats-grid-container">
+    <div className="rare-sats-container">
+      <h1 className="rare-sats-header">Rare Sats</h1>
       <div className="rare-sats-grid">
         {rareSatsData.map((sat, index) => (
           <div key={index} className={`rare-sat-card ${sat.category}`}>
-            <div className="icon-placeholder">
-              {/* Icon will be added later */}
+            <div className="icon-container">
+              {iconMap[sat.category] ? (
+                <img 
+                  src={iconMap[sat.category]} 
+                  alt={`${sat.title} icon`}
+                  className="sat-icon"
+                />
+              ) : (
+                <div className="icon-placeholder" />
+              )}
             </div>
-            <h3>{sat.title}</h3>
-            <p>{sat.description}</p>
+            <div className="card-content">
+              <h3>{sat.title}</h3>
+              <p>{sat.description}</p>
+            </div>
           </div>
         ))}
       </div>

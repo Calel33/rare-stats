@@ -1,13 +1,24 @@
-.rare-sats-grid-container {
+.rare-sats-container {
   padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rare-sats-header {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .rare-sats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 1rem;
 }
 
 .rare-sat-card {
@@ -16,7 +27,9 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
   min-height: 120px;
   position: relative;
   overflow: hidden;
@@ -32,10 +45,9 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    135deg,
+    45deg,
     rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    transparent 100%
+    rgba(255, 255, 255, 0.05) 100%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -50,98 +62,87 @@
   opacity: 1;
 }
 
-.rare-sat-card h3 {
-  position: relative;
+.icon-container {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.sat-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-content h3 {
   margin: 0;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.rare-sat-card:hover h3 {
-  transform: translateX(5px);
-  color: #fff;
-}
-
-.rare-sat-card p {
-  position: relative;
+.card-content p {
   margin: 0;
-  color: #a0a0a0;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  transition: transform 0.2s ease;
+  color: #a0aec0;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
-.rare-sat-card:hover p {
-  transform: translateX(5px);
-}
-
-.icon-placeholder {
-  width: 32px;
-  height: 32px;
-  background-color: #3a3a3a;
-  border-radius: 6px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.rare-sat-card:hover .icon-placeholder {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Add a subtle glow effect for specific categories on hover */
-.mythic:hover { box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15); }
-.legendary:hover { box-shadow: 0 8px 20px rgba(255, 140, 0, 0.15); }
-.epic:hover { box-shadow: 0 8px 20px rgba(148, 0, 211, 0.15); }
-.rare:hover { box-shadow: 0 8px 20px rgba(65, 105, 225, 0.15); }
-.uncommon:hover { box-shadow: 0 8px 20px rgba(50, 205, 50, 0.15); }
-
-/* Category-specific styles */
+/* Card border colors */
 .mythic { border-left: 3px solid #ffd700; }
 .legendary { border-left: 3px solid #ff8c00; }
-.epic { border-left: 3px solid #9400d3; }
+.epic { border-left: 3px solid #9932cc; }
 .rare { border-left: 3px solid #4169e1; }
 .uncommon { border-left: 3px solid #32cd32; }
 .common { border-left: 3px solid #808080; }
-.black-legendary { border-left: 3px solid #404040; }
-.black-epic { border-left: 3px solid #303030; }
-.black-rare { border-left: 3px solid #202020; }
-.black-uncommon { border-left: 3px solid #101010; }
-
-/* Additional categories */
-.fibonacci { border-left: 3px solid #e6b800; }
-.palindrome { border-left: 3px solid #00bfff; }
-.one-d-pali { border-left: 3px solid #4dc3ff; }
-.two-d-pali { border-left: 3px solid #66ccff; }
-.three-d-pali { border-left: 3px solid #80d4ff; }
-.sequence-pali { border-left: 3px solid #99ddff; }
-.perfect-pali { border-left: 3px solid #b3e6ff; }
-.block-pali { border-left: 3px solid #cceeff; }
-.name-palindrome { border-left: 3px solid #e6f7ff; }
-.alpha { border-left: 3px solid #ff4d4d; }
-.omega { border-left: 3px solid #1ac6ff; }
-.first-transaction { border-left: 3px solid #ffd700; }
-.block-9 { border-left: 3px solid #c0c0c0; }
-.block-78 { border-left: 3px solid #ff69b4; }
-.nakamoto { border-left: 3px solid #ffd700; }
-.vintage { border-left: 3px solid #daa520; }
-.pizza { border-left: 3px solid #ffa500; }
-.jpeg { border-left: 3px solid #20b2aa; }
+.black-legendary { border-left: 3px solid #1a1a1a; }
+.black-epic { border-left: 3px solid #4b0082; }
+.black-rare { border-left: 3px solid #191970; }
+.black-uncommon { border-left: 3px solid #2f4f4f; }
+.fibonacci { border-left: 3px solid #daa520; }
+.palindrome { border-left: 3px solid #20b2aa; }
+.one-d-pali { border-left: 3px solid #48d1cc; }
+.two-d-pali { border-left: 3px solid #40e0d0; }
+.three-d-pali { border-left: 3px solid #7fffd4; }
+.sequence-pali { border-left: 3px solid #66cdaa; }
+.perfect-pali { border-left: 3px solid #3cb371; }
+.block-pali { border-left: 3px solid #2e8b57; }
+.name-palindrome { border-left: 3px solid #98fb98; }
+.alpha { border-left: 3px solid #ff4500; }
+.omega { border-left: 3px solid #ff6347; }
+.first-transaction { border-left: 3px solid #ffa07a; }
+.block-9 { border-left: 3px solid #ff69b4; }
+.block-78 { border-left: 3px solid #ff1493; }
+.block-286 { border-left: 3px solid #c71585; }
+.block-666 { border-left: 3px solid #db7093; }
+.nakamoto { border-left: 3px solid #ba55d3; }
+.vintage { border-left: 3px solid #9370db; }
+.pizza { border-left: 3px solid #ff7f50; }
+.jpeg { border-left: 3px solid #f08080; }
 .hitman { border-left: 3px solid #800000; }
 .silkroad { border-left: 3px solid #4b0082; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .rare-sats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-  
-  .rare-sats-grid-container {
+  .rare-sats-container {
     padding: 1rem;
   }
   
-  .rare-sat-card {
-    min-height: 100px;
+  .rare-sats-header {
+    font-size: 2rem;
+  }
+
+  .rare-sats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
